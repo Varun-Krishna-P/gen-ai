@@ -10,10 +10,10 @@ from openai import AzureOpenAI
 
 
 
-def authenticate():
+def authenticate(api_version="2024-05-01-preview"):
     client = AzureOpenAI(
             azure_endpoint=os.getenv("AOAI_ENDPOINT", input("please enter the azure open api endpoint: ")),
-            api_version="2024-05-01-preview",
+            api_version=api_version,
             api_key=os.getenv("AOAI_KEY", input("please enter the api key: "))
         )
     return client
